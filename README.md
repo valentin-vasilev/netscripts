@@ -1,4 +1,5 @@
-# Prefixops Scripts
+<h1 align="center">PrefixOps</h1>
+![Tests](https://github.com/valentin-vasilev/netscripts/actions/workflows/pr_workflow.yaml/badge.svg)
 
 A collection of scripts for manipulating network address data in CLI. Each command-line tool is designed to do one thing and do it well. This follows the Unix philosophy of "do one thing and do it well."
 
@@ -13,7 +14,6 @@ A collection of scripts for manipulating network address data in CLI. Each comma
 
 |Script Name    |Synopsis    |
 |---------------|------------|
-|asagroup       |Read prefixes in prefix subnet mask notation from STDIN and return them in Cisco ASA object group format to STDOUT.|
 |cidr2mask      |Read prefixes in CIDR notation from STDIN and return them in prefix and subnet mask notation to STDOUT.|
 |mask2cidr      |Read prefixes in prefix and subnet mask notation from STDIN and returns them in CIDR notation to STDOUT.|
 |summarize_cidrs|Read prefixes in CIDR notation from STDIN, summarize them to least common prefix length and returns the result in CIDR notation to STDOUT.|
