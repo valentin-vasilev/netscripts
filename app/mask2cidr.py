@@ -1,27 +1,15 @@
 #!/usr/bin/env python
 
-import sys
 import fileinput
 import math
+import sys
+
+from handlers import is_valid_net_and_mask
 
 
 def read_net_list() -> list:
     """Read network list for stdin or file"""
     return [line.strip("  ,\n") for line in fileinput.input() if line.strip(" ,\n")]
-
-
-def is_valid_net_and_mask(net: str) -> bool:
-    """Check if string is valid network + subnet mask notation"""
-    parts: list = net.split(" ")
-    if len(parts) != 2:
-        return False
-    for part in parts:
-        if len(part.split(".")) != 4:
-            return False
-        for octet in part.split("."):
-            if not octet.isdigit() or int(octet) < 0 or int(octet) > 255:
-                return False
-    return True
 
 
 def mask_to_cidr(net: str) -> str:
@@ -35,6 +23,7 @@ def mask_to_cidr(net: str) -> str:
 
 
 def main() -> None:
+    """Main function"""
     for net in read_net_list():
         if is_valid_net_and_mask(net):
             print(mask_to_cidr(net))
