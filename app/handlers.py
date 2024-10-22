@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+This module provides functions for input validation of IPv4 network
+related data such as CIDR, and network and subnet mask notations.
+"""
 
 import fileinput
 

@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+This is test module including unit test for validating network and
+subnet mask notations.
+"""
 
 import pytest
 

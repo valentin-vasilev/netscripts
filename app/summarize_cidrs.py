@@ -1,7 +1,21 @@
 #!/usr/bin/env python
+"""
+Script for summarizing IPv4 CIDRs to the least common
+CIDR blocks
+
+Example:
+Input:
+192.168.0.0/24
+192.168.1.0/24
+192.168.2.0/24
+Output:
+192.168.0.0/23
+192.168.2.0/24
+"""
+
+import fileinput
 
 from netaddr import cidr_merge
-import fileinput
 
 
 def read_cidr_list() -> list:
@@ -15,6 +29,7 @@ def merge_cidr_list(cidr_list: list) -> list:
 
 
 def main() -> None:
+    """Main function"""
     for cidr in merge_cidr_list(read_cidr_list()):
         print(cidr)
 

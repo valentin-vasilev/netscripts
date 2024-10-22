@@ -1,6 +1,11 @@
 #!/usr/bin/env python
+"""
+Script for converting IPv4 CIDR notation to network and
+subnet mask notation.
 
-import sys
+Example:
+192.168.1.0/24 -> 192.168.1.0 255.255.255.0
+"""
 
 from handlers import is_valid_cidr, read_cidr_list
 
