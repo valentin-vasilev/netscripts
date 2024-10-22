@@ -1,14 +1,13 @@
 #!/usr/bin/env python
+"""
+Script for converting IPv4 CIDR notation to network and
+subnet mask notation.
 
-import fileinput
-import sys
+Example:
+192.168.1.0/24 -> 192.168.1.0 255.255.255.0
+"""
 
-from handlers import is_valid_cidr
-
-
-def read_cidr_list() -> list:
-    """Read CIDR list for stdin or file"""
-    return [line.strip("  ,\n") for line in fileinput.input() if line.strip(" ,\n")]
+from handlers import is_valid_cidr, read_cidr_list
 
 
 def cidr_to_mask(cidr: str) -> str:
@@ -28,8 +27,6 @@ def main() -> None:
     for cidr in read_cidr_list():
         if is_valid_cidr(cidr):
             print(cidr_to_mask(cidr))
-        else:
-            sys.exit(f"{cidr} is not a valid CIDR notation. Please fix input data.")
 
 
 if __name__ == "__main__":
