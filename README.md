@@ -1,6 +1,9 @@
 <h1 align="center">PrefixOps</h1>
 
-![Tests](https://github.com/valentin-vasilev/netscripts/actions/workflows/pr_workflow.yaml/badge.svg)
+<p align="center">
+  ![Tests](https://github.com/valentin-vasilev/netscripts/actions/workflows/pr_workflow.yaml/badge.svg)
+  <img src="https://github.com/valentin-vasilev/netscripts/blob/main/images/prefixops.webp" alt="My Dotfiles" width="400"/>
+</p>
 
 A collection of scripts for manipulating network address data in CLI. Each command-line tool is designed to do one thing and do it well. This follows the Unix philosophy of "do one thing and do it well."
 
