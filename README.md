@@ -1,7 +1,9 @@
 <h1 align="center">PrefixOps</h1>
 
 <p align="center">
+
   ![Tests](https://github.com/valentin-vasilev/netscripts/actions/workflows/pr_workflow.yaml/badge.svg)
+
 </p>
 
 <p align="center">
