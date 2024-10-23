@@ -1,14 +1,11 @@
 <h1 align="center">PrefixOps</h1>
 
 <p align="center">
-
-  ![Tests](https://github.com/valentin-vasilev/netscripts/actions/workflows/pr_workflow.yaml/badge.svg)
-
-</p>
-
-<p align="center">
   <img src="https://github.com/valentin-vasilev/netscripts/blob/main/images/prefixops.webp" alt="PrefixOps" width="500"/>
 </p>
+
+![Linting](https://github.com/valentin-vasilev/netscripts/actions/workflows/linting.yaml/badge.svg) ![Unit Test](https://github.com/valentin-vasilev/netscripts/actions/workflows/unit_tests.yaml/badge.svg)
+
 
 A collection of scripts for manipulating network address data in CLI. Each command-line tool is designed to do one thing and do it well. This follows the Unix philosophy of "do one thing and do it well."
 
