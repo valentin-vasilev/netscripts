@@ -5,6 +5,8 @@ related data such as CIDR, and network and subnet mask notations.
 """
 
 import fileinput
+import ipaddress
+from typing import List
 
 
 def read_cidr_list() -> list:
@@ -42,3 +44,23 @@ def is_valid_net_and_mask(net: str) -> bool:
             if not octet.isdigit() or int(octet) < 0 or int(octet) > 255:
                 raise ValueError(f"{net} is not a valid net mask notation")
     return True
+
+
+def sort_cidrs(unsorted_cidrs: List) -> List[ipaddress.IPv4Network]:
+    """Sort a list of IPv4 networks in CIDR notation"""
+
+    try:
+        cidr_list: List[ipaddress.IPv4Network] = [
+            (
+                cidr
+                if isinstance(cidr, ipaddress.IPv4Network)
+                else ipaddress.IPv4Network(cidr)
+            )
+            for cidr in unsorted_cidrs
+        ]
+    except ipaddress.AddressValueError as e:
+        print(f"Invalid IPv4 CIDR notation {e}")
+    sorted_cidrs: List[ipaddress.IPv4Network] = sorted(
+        cidr_list, key=lambda n: (int(n.network_address), n.prefixlen)
+    )
+    return sorted_cidrs

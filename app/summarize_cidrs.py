@@ -14,8 +14,10 @@ Output:
 """
 
 import fileinput
+import ipaddress
+from typing import List
 
-from netaddr import cidr_merge
+from handlers import sort_cidrs
 
 
 def read_cidr_list() -> list:
@@ -23,14 +25,20 @@ def read_cidr_list() -> list:
     return [line.strip("  ,\n") for line in fileinput.input() if line.strip(" ,\n")]
 
 
-def merge_cidr_list(cidr_list: list) -> list:
-    """Merge CIDR list and returns merged list"""
-    return cidr_merge(cidr_list)
+def summarize_cidrs(input_cidrs: List) -> List[str]:
+    """Summarize list of cidrs to the least common"""
+    cidrs: List[ipaddress.IPv4Network] = [
+        cidr if isinstance(cidr, ipaddress.IPv4Network) else ipaddress.IPv4Network(cidr)
+        for cidr in input_cidrs
+    ]
+    # Sort the list of input CIDRs
+    sorted_cidrs: List[ipaddress.IPv4Network] = sort_cidrs(cidrs)
+    return [str(cidr) for cidr in ipaddress.collapse_addresses(sorted_cidrs)]
 
 
 def main() -> None:
     """Main function"""
-    for cidr in merge_cidr_list(read_cidr_list()):
+    for cidr in summarize_cidrs(read_cidr_list()):
         print(cidr)
 
 

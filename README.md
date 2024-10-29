@@ -33,7 +33,10 @@ git clone git@github.com:valentin-vasilev/netscripts.git $HOME/code
 cd $HOME/code/netscripts
 ```
 
-2. Install dependencies
+2. (Optional) Install dependencies 
+
+Addtional packages are required for development purposes only. All scripts are designed to work with the standard Python libraries.
+
 ```bash
 python -m pip install - r requirements.txt
 ```
